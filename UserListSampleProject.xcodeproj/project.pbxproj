@@ -16,6 +16,8 @@
 		E83F035B2AF7E5A2009D3980 /* UserListSampleProjectUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F035A2AF7E5A2009D3980 /* UserListSampleProjectUITestsLaunchTests.swift */; };
 		E83F03682AF7E91C009D3980 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F03672AF7E91C009D3980 /* User.swift */; };
 		E83F036B2AF7EBD8009D3980 /* SwiftID in Frameworks */ = {isa = PBXBuildFile; productRef = E83F036A2AF7EBD8009D3980 /* SwiftID */; };
+		E83F036F2AFC4CD2009D3980 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F036E2AFC4CD2009D3980 /* UserView.swift */; };
+		E83F03722AFC4CFE009D3980 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F03712AFC4CFE009D3980 /* UserRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		E83F03582AF7E5A2009D3980 /* UserListSampleProjectUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListSampleProjectUITests.swift; sourceTree = "<group>"; };
 		E83F035A2AF7E5A2009D3980 /* UserListSampleProjectUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListSampleProjectUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E83F03672AF7E91C009D3980 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E83F036E2AFC4CD2009D3980 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		E83F03712AFC4CFE009D3980 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +102,13 @@
 		E83F033C2AF7E5A1009D3980 /* UserListSampleProject */ = {
 			isa = PBXGroup;
 			children = (
+				E83F03702AFC4CE9009D3980 /* Repository */,
+				E83F036D2AFC4CBA009D3980 /* View */,
+				E83F036C2AFC4CB4009D3980 /* Model */,
 				E83F033D2AF7E5A1009D3980 /* UserListSampleProjectApp.swift */,
 				E83F033F2AF7E5A1009D3980 /* ContentView.swift */,
 				E83F03412AF7E5A2009D3980 /* Assets.xcassets */,
 				E83F03432AF7E5A2009D3980 /* Preview Content */,
-				E83F03672AF7E91C009D3980 /* User.swift */,
 			);
 			path = UserListSampleProject;
 			sourceTree = "<group>";
@@ -130,6 +136,30 @@
 				E83F035A2AF7E5A2009D3980 /* UserListSampleProjectUITestsLaunchTests.swift */,
 			);
 			path = UserListSampleProjectUITests;
+			sourceTree = "<group>";
+		};
+		E83F036C2AFC4CB4009D3980 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E83F03672AF7E91C009D3980 /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E83F036D2AFC4CBA009D3980 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E83F036E2AFC4CD2009D3980 /* UserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E83F03702AFC4CE9009D3980 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				E83F03712AFC4CFE009D3980 /* UserRepository.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +301,8 @@
 				E83F03402AF7E5A1009D3980 /* ContentView.swift in Sources */,
 				E83F033E2AF7E5A1009D3980 /* UserListSampleProjectApp.swift in Sources */,
 				E83F03682AF7E91C009D3980 /* User.swift in Sources */,
+				E83F03722AFC4CFE009D3980 /* UserRepository.swift in Sources */,
+				E83F036F2AFC4CD2009D3980 /* UserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
