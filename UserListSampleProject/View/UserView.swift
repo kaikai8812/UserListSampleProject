@@ -9,26 +9,25 @@ import SwiftUI
 
 struct UserView: View {
     
-    let id: User.ID
+    @StateObject private var state: UserViewState
     
-    @State private var user: User?
+    init(id: User.ID) {
+        //  StateObjectを更新するときは、_をつけて、更新する
+        self._state = .init(wrappedValue: UserViewState(id: id))
+    }
     
     var body: some View {
         VStack {
-            Text(user?.name ?? "User Name Place Holder")
-                .redacted(reason: user == nil ? .placeholder: [])
+            Text(state.user?.name ?? "User Name Place Holder")
+                .redacted(reason: state.user == nil ? .placeholder: [])
                 .font(.title)
         }
         .task {
-            do {
-                user = try await UserRepository.fetchValue(id: id)
-            } catch {
-                print(error.localizedDescription)
-            }
+            await state.load()
         }
     }
 }
 
 #Preview {
-    UserView(id: "A")
+    UserView(id: "B")
 }
