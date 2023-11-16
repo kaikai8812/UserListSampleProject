@@ -20,6 +20,8 @@
 		E83F03722AFC4CFE009D3980 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F03712AFC4CFE009D3980 /* UserRepository.swift */; };
 		E83F03AB2B011D4F009D3980 /* UserViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F03AA2B011D4F009D3980 /* UserViewState.swift */; };
 		E83F03AD2B03B44F009D3980 /* sampleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F03AC2B03B44F009D3980 /* sampleView.swift */; };
+		E83F03AF2B05965B009D3980 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F03AE2B05965B009D3980 /* UserListView.swift */; };
+		E83F03B12B059805009D3980 /* UserListViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83F03B02B059805009D3980 /* UserListViewState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		E83F03712AFC4CFE009D3980 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		E83F03AA2B011D4F009D3980 /* UserViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewState.swift; sourceTree = "<group>"; };
 		E83F03AC2B03B44F009D3980 /* sampleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sampleView.swift; sourceTree = "<group>"; };
+		E83F03AE2B05965B009D3980 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
+		E83F03B02B059805009D3980 /* UserListViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +110,11 @@
 		E83F033C2AF7E5A1009D3980 /* UserListSampleProject */ = {
 			isa = PBXGroup;
 			children = (
+				E83F033D2AF7E5A1009D3980 /* UserListSampleProjectApp.swift */,
 				E83F03A92B011D40009D3980 /* State */,
 				E83F03702AFC4CE9009D3980 /* Repository */,
 				E83F036D2AFC4CBA009D3980 /* View */,
 				E83F036C2AFC4CB4009D3980 /* Model */,
-				E83F033D2AF7E5A1009D3980 /* UserListSampleProjectApp.swift */,
 				E83F033F2AF7E5A1009D3980 /* ContentView.swift */,
 				E83F03412AF7E5A2009D3980 /* Assets.xcassets */,
 				E83F03432AF7E5A2009D3980 /* Preview Content */,
@@ -156,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				E83F036E2AFC4CD2009D3980 /* UserView.swift */,
+				E83F03AE2B05965B009D3980 /* UserListView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -172,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				E83F03AA2B011D4F009D3980 /* UserViewState.swift */,
+				E83F03B02B059805009D3980 /* UserListViewState.swift */,
 			);
 			path = State;
 			sourceTree = "<group>";
@@ -314,7 +320,9 @@
 			files = (
 				E83F03402AF7E5A1009D3980 /* ContentView.swift in Sources */,
 				E83F03AD2B03B44F009D3980 /* sampleView.swift in Sources */,
+				E83F03B12B059805009D3980 /* UserListViewState.swift in Sources */,
 				E83F03AB2B011D4F009D3980 /* UserViewState.swift in Sources */,
+				E83F03AF2B05965B009D3980 /* UserListView.swift in Sources */,
 				E83F033E2AF7E5A1009D3980 /* UserListSampleProjectApp.swift in Sources */,
 				E83F03682AF7E91C009D3980 /* User.swift in Sources */,
 				E83F03722AFC4CFE009D3980 /* UserRepository.swift in Sources */,
