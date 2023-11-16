@@ -19,11 +19,22 @@ struct UserView: View {
     var body: some View {
         VStack {
             Text(state.user?.name ?? "User Name Place Holder")
-                .redacted(reason: state.user == nil ? .placeholder: [])
+                .redacted(reason: state.isReloadButtonDisabled ? .placeholder: [])
                 .font(.title)
         }
         .task {
             await state.load()
+        }
+        
+        Button("Reload") {
+            state.reload()
+        }
+        .disabled(state.isReloadButtonDisabled)
+        
+        if state.isReloadButtonDisabled {
+            Text("リロードなう")
+        } else {
+            Text("表示なう")
         }
     }
 }
