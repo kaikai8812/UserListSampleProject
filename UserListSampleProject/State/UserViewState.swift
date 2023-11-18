@@ -11,11 +11,20 @@ import Combine
 final class UserViewState: ObservableObject {
     let id: User.ID
     
+    let userStore: UserStore = .shared
+    
     @Published private(set) var user: User?
     @Published private(set) var isReloadButtonDisabled: Bool = false  //  リロードボタンの活性をview側で判断するためのメソッド
     
     init(id: User.ID) {
         self.id = id
+        
+        userStore.$values
+            .map { values in
+                values[id]  //  ここで、どのユーザーかは一意に特定できるっぽいかな
+            }
+            .assign(to: &$user)
+            
     }
     
     //  state側に、user情報の更新を任せる。
@@ -25,7 +34,7 @@ final class UserViewState: ObservableObject {
         defer { isReloadButtonDisabled = false }
         
         do {
-            user = try await UserRepository.fetchValue(id: id)
+            try await userStore.loadValue(for: id)
         } catch {
             print(error.localizedDescription)
         }
@@ -38,3 +47,5 @@ final class UserViewState: ObservableObject {
         }
     }
 }
+
+//  storeの中の値を、常に参照するような形にする。
