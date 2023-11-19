@@ -5,15 +5,17 @@
 //  Created by 青山凱 on 2023/11/17.
 //
 
-import Combine
+//import Combine
+import Observation
 
 //  Storeは、ユーザー情報がシングルソースとして、溜まっているところ、と理解すれば良さそう。
 //  ここから、情報を取得することで、矛盾のない状態のデータを、それぞれのViewが取得することができる。
 
-@MainActor
-final class UserStore: ObservableObject {
+@Observable
+final class UserStore {
     // 辞書型で、valuesを保持する。
-    @Published private(set) var values: [User.ID: User] = [:]
+//    @Published private(set) var values: [User.ID: User] = [:]
+    private(set) var values: [User.ID: User] = [:]
     
     static let shared: UserStore = .init()
     

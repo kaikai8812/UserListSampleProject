@@ -11,7 +11,9 @@ struct UserListView: View {
     
 //    @StateObject private var state: UserListViewState = .init()
     
-    @EnvironmentObject var userStore: UserStore
+//    @EnvironmentObject var userStore: UserStore
+    
+    @Environment(UserStore.self) var userStore
     
     var users: [User] {
             userStore.values.values.sorted(by: { $0.id.rawValue < $1.id.rawValue })
@@ -44,5 +46,5 @@ struct UserListView: View {
     NavigationStack {  //  navigationStackをつけないと、遷移が機能しない。NavigationLinkを使用しているから？
         UserListView()
     }
-    .environmentObject(UserStore.shared)
+    .environment(UserStore.shared)
 }
