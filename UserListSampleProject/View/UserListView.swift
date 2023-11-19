@@ -9,10 +9,24 @@ import SwiftUI
 
 struct UserListView: View {
     
-    @StateObject private var state: UserListViewState = .init()
+//    @StateObject private var state: UserListViewState = .init()
+    
+    @EnvironmentObject var userStore: UserStore
+    
+    var users: [User] {
+            userStore.values.values.sorted(by: { $0.id.rawValue < $1.id.rawValue })
+        }
+    
+    func load() async {
+        do {
+            try await userStore.loadAllValue()
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
     
     var body: some View {
-        List(state.users) { user in
+        List(users) { user in
             NavigationLink {
                 UserView(id: user.id)
             } label: {
@@ -20,7 +34,7 @@ struct UserListView: View {
             }
         }
         .task {
-            await state.load()
+            await load()
         }
                 
     }
@@ -30,4 +44,5 @@ struct UserListView: View {
     NavigationStack {  //  navigationStackをつけないと、遷移が機能しない。NavigationLinkを使用しているから？
         UserListView()
     }
+    .environmentObject(UserStore.shared)
 }

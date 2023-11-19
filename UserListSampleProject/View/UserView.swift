@@ -8,30 +8,54 @@
 import SwiftUI
 
 struct UserView: View {
+    //  idをviewが持つようになる
+    let id: User.ID
     
-    @StateObject private var state: UserViewState
+    //  reloadボタンの状態管理も、持つようになる
+    @State var isReloadButtonDisabled: Bool = false
     
-    init(id: User.ID) {
-        //  StateObjectを更新するときは、_をつけて、更新する
-        self._state = .init(wrappedValue: UserViewState(id: id))
+    //  storeの状態を、直接持つようになる
+    @EnvironmentObject var userStore: UserStore
+    
+    var user: User? {
+        userStore.values[id]
+    }
+    
+    func load() async {
+        isReloadButtonDisabled = true
+        defer { isReloadButtonDisabled = false}
+        
+        do {
+            try await userStore.loadValue(for: id)
+        } catch {
+            // Error handling
+            print(error)
+        }
+    }
+    
+    func reload() {
+        isReloadButtonDisabled = true
+        Task {
+            await load()
+        }
     }
     
     var body: some View {
         VStack {
-            Text(state.user?.name ?? "User Name Place Holder")
-                .redacted(reason: state.isReloadButtonDisabled ? .placeholder: [])
+            Text(user?.name ?? "User Name Place Holder")
+                .redacted(reason: isReloadButtonDisabled ? .placeholder: [])
                 .font(.title)
         }
         .task {
-            await state.load()
+        await load()
         }
         
         Button("Reload") {
-            state.reload()
+            reload()
         }
-        .disabled(state.isReloadButtonDisabled)
+        .disabled(isReloadButtonDisabled)
         
-        if state.isReloadButtonDisabled {
+        if isReloadButtonDisabled {
             Text("リロードなう")
         } else {
             Text("表示なう")
@@ -40,5 +64,6 @@ struct UserView: View {
 }
 
 #Preview {
-    UserView(id: "B")
+    UserView(id: "A")
+        .environmentObject(UserStore.shared)
 }
